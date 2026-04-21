@@ -1,0 +1,29 @@
+
+{% extends "blog/base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h1>Bienvenido</h1>
+</div>
+
+<div class="card">
+    <h2>Clientes</h2>
+    <a href="{% url 'crear_cliente' %}">Crear Cliente</a><br>
+    <a href="{% url 'buscar_cliente' %}">Buscar Cliente</a><br>
+    <a href="{% url 'lista_clientes' %}">Mostrar Clientes</a>
+</div>
+
+<div class="card">
+    <h2>Productos</h2>
+    <a href="{% url 'crear_producto' %}">Crear Producto</a>
+</div>
+
+<div class="card">
+    <h2>Pedidos</h2>
+    <a href="{% url 'crear_pedido' %}">Crear Pedido</a>
+</div>
+
+{% endblock %}
