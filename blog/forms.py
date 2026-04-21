@@ -4,24 +4,23 @@ from blog.models import Cliente, Producto, Pedido
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = '__all__'
+        fields = ("nombre", "edad", "mail")
         labels = {
             "nombre": "Nombre",
             "edad": "Edad",
             "mail": "Correo electrónico"
         }
 
-
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = ("nombre", "precio", "stock")
 
 
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
-        fields = '__all__'
+        fields = ("cliente", "producto", "cantidad")
 
 
 class BusquedaClienteForm(forms.Form):

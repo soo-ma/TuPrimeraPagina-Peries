@@ -5,9 +5,16 @@
 <div class="card">
     <h2>Productos</h2>
 
+    <form method="GET">
+        <input type="text" name="nombre" placeholder="Buscar por nombre..." value="{{ request.GET.nombre }}">
+        <button type="submit">Buscar</button>
+    </form>
+    
     <ul>
         {% for producto in productos_list %}
             <li>{{ producto }}</li>
+        {% empty %}
+            <li>No se encontraron clientes.</li>
         {% endfor %}
     </ul>
 </div>
