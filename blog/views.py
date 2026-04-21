@@ -93,11 +93,11 @@ def pedidos_list(request):
 
     if cliente is not None:
         pedidos_query = Pedido.objects.filter(
-            nombre__icontains=cliente
+            cliente__nombre__icontains=cliente
         )
 
     contexto = {
-        "pedidos_list": list(pedidos_query)      
+        "pedidos_list": list(pedidos_query)
     }
     
     return render(request, "blog/pedidos_list.html", contexto)

@@ -6,15 +6,15 @@
     <h2>Pedidos Realizados</h2>
 
     <form method="GET">
-        <input type="text" name="nombre" placeholder="Buscar por nombre de cliente..." value="{{ request.GET.cliente }}">
+        <input type="text" name="cliente" placeholder="Buscar por nombre de cliente..." value="{{ request.GET.cliente }}">
         <button type="submit">Buscar</button>
     </form>
 
     <ul>
-        {% for pedido in pedidos_list %}
-            <li>{{ pedido }}</li>
+        {% for producto in pedidos_list %}
+            <li>{{ producto }}</li>
         {% empty %}
-            <li>No se encontraron clientes.</li>
+            <li>No se encontraron pedidos a nombre de ese cliente.</li>
         {% endfor %}
     </ul>
 </div>
