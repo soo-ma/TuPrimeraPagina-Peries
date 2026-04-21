@@ -37,8 +37,13 @@
 
 <div class="navbar">
     <a href="{% url 'home' %}">Home</a>
-    <a href="#">Productos</a>
-
+    <div class="dropdown">
+        <a href="#">Productos</a>
+        <div class="dropdown-content">
+            <a href="{% url 'crear_producto' %}">Productos</a>
+            <a href="{% url 'crear_pedido' %}">Pedidos</a>
+        </div>
+    </div>
     <div class="dropdown">
         <a href="#">Clientes</a>
         <div class="dropdown-content">

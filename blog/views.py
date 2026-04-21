@@ -3,7 +3,7 @@ from blog.models import *
 from .forms import *
 
 def home(request):
-    return render(request, "blog/index.html")
+    return render(request, "blog/home.html")
 
 def crear_cliente(request):
     form = ClienteForm(request.POST or None)
@@ -11,7 +11,8 @@ def crear_cliente(request):
         form.save()
         return redirect("clientes_list")
 
-    return render(request, "blog/forms.html", {"form": form})
+    return render(request, "blog/forms.html", {"form": form, "titulo": "Registrar Cliente"})
+
 
 def crear_producto(request):
     form = ProductoForm(request.POST or None)
@@ -19,7 +20,7 @@ def crear_producto(request):
         form.save()
         return redirect("home")
 
-    return render(request, "blog/forms.html", {"form": form})
+    return render(request, "blog/forms.html", {"form": form, "titulo": "Registrar Producto"})
 
 def crear_pedido(request):
     form = PedidoForm(request.POST or None)
@@ -27,7 +28,7 @@ def crear_pedido(request):
         form.save()
         return redirect("home")
 
-    return render(request, "blog/forms.html", {"form": form})
+    return render(request, "blog/forms.html", {"form": form, "titulo": "Crear Pedido"})
 
 def buscar_cliente(request):
     resultados = []
@@ -52,5 +53,6 @@ def clientes_list(request):
     contexto = {
         "clientes_list": list(clientes_query)   
     }
-
+    
     return render(request, "blog/clientes_list.html", contexto)
+
