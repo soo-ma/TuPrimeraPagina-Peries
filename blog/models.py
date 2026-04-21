@@ -12,10 +12,10 @@ class Cliente(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.FloatField()
-    stock = models.FloatField()
+    stock = models.IntegerField()
 
     def __str__(self):
-        return "nombre del producto: " + self.nombre + ", precio: " + str(self.precio) + ", stock: " + str(self.precio) + "."
+        return "nombre del producto: " + self.nombre + ", precio: " + str(self.precio) + ", stock: " + str(self.stock) + "."
     
 class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)

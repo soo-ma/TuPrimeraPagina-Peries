@@ -2,13 +2,15 @@
 
 {% block contenido %}
 
-<h2>Cargar Datos</h2>
+<div class="card">
+    <h2>Formulario</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
 
-    <button type="submit">Guardar</button>
-</form>
+</div>
 
 {% endblock %}

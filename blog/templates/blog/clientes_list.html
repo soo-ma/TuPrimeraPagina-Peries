@@ -2,32 +2,14 @@
 
 {% block contenido %}
 
-<h2>Clientes Registrados</h2>
+<div class="card">
+    <h2>Clientes Registrados</h2>
 
-{% if clientes_list %}
-
-<table>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Edad</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-
-    <tbody>
+    <ul>
         {% for cliente in clientes_list %}
-        <tr>
-            <td>{{ cliente.nombre }}</td>
-            <td>{{ cliente.edad }}</td>
-            <td>{{ cliente.mail }}</td>
-        </tr>
+            <li>{{ cliente }}</li>
         {% endfor %}
-    </tbody>
-</table>
-
-{% else %}
-    <p>No hay clientes registrados.</p>
-{% endif %}
+    </ul>
+</div>
 
 {% endblock %}

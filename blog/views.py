@@ -9,7 +9,7 @@ def crear_cliente(request):
     form = ClienteForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect("lista_clientes")
+        return redirect("clientes_list")
 
     return render(request, "blog/forms.html", {"form": form})
 
@@ -32,21 +32,23 @@ def crear_pedido(request):
 def buscar_cliente(request):
     resultados = []
     form = BusquedaClienteForm(request.GET or None)
-    contexto = {
-        "form": form,
-        "resultados": resultados
-    }
 
     if form.is_valid():
         nombre = form.cleaned_data.get("nombre")
         if nombre:
             resultados = Cliente.objects.filter(nombre__icontains=nombre)
 
+    contexto = {
+        "form": form,
+        "resultados": resultados
+    }
+
     return render(request, "blog/busqueda.html", contexto)
 
 
 def clientes_list(request):
     clientes_query = Cliente.objects.all()
+    
     contexto = {
         "clientes_list": list(clientes_query)   
     }

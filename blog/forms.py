@@ -5,6 +5,11 @@ class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = '__all__'
+        labels = {
+            "nombre": "Nombre",
+            "edad": "Edad",
+            "mail": "Correo electrónico"
+        }
 
 
 class ProductoForm(forms.ModelForm):
@@ -20,4 +25,8 @@ class PedidoForm(forms.ModelForm):
 
 
 class BusquedaClienteForm(forms.Form):
-    nombre = forms.CharField(max_length=100, required=False)
+    nombre = forms.CharField(
+        max_length=100,
+        required=False,
+        label="Buscar cliente por nombre"
+    )

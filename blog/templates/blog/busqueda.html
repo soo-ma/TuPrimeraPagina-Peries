@@ -2,30 +2,27 @@
 
 {% block contenido %}
 
-<h2>Buscar Cliente</h2>
+<div class="card">
+    <h2>Buscar Cliente</h2>
 
-<form method="get">
-    {{ form.as_p }}
-    <button type="submit">Buscar</button>
-</form>
+    <form method="GET">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+</div>
 
-<hr>
-
-{% if resultados %}
+<div class="card">
     <h3>Resultados:</h3>
 
-    <ul>
-    {% for cliente in resultados %}
-        <li>
-            <strong>{{ cliente.nombre }}</strong><br>
-            Edad: {{ cliente.edad }}<br>
-            Email: {{ cliente.mail }}
-        </li>
-    {% endfor %}
-    </ul>
-
-{% else %}
-    <p>No hay resultados.</p>
-{% endif %}
+    {% if resultados %}
+        <ul>
+            {% for cliente in resultados %}
+                <li>{{ cliente }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay resultados</p>
+    {% endif %}
+</div>
 
 {% endblock %}
