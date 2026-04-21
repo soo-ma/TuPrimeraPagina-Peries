@@ -3,11 +3,31 @@
 {% block contenido %}
 
 <div class="card">
-    <h2>{{ titulo }}</h2>
+    
+    <h2>{{ titulo|default:"Formulario" }}</h2>
+
+    {% if form.non_field_errors %}
+        <div style="background-color:#ffdddd; color:#a94442; padding:10px; border-radius:5px; margin-bottom:15px;">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
 
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        {% for field in form %}
+            <div style="margin-bottom: 15px;">
+                <label>{{ field.label }}</label><br>
+                {{ field }}
+
+                {% if field.errors %}
+                    <div style="color: red; font-size: 14px;">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
         <button type="submit">Guardar</button>
     </form>
 

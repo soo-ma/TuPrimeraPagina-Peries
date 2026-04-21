@@ -56,3 +56,20 @@ def clientes_list(request):
     
     return render(request, "blog/clientes_list.html", contexto)
 
+def productos_list(request):
+    productos_query = Producto.objects.all()
+    
+    contexto = {
+        "productos_list": list(productos_query)   
+    }
+    
+    return render(request, "blog/productos_list.html", contexto)
+
+def pedidos_list(request):
+    pedidos_query = Pedido.objects.all()
+    
+    contexto = {
+        "pedidos_list": list(pedidos_query)      
+    }
+    
+    return render(request, "blog/pedidos_list.html", contexto)

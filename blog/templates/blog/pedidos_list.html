@@ -1,0 +1,15 @@
+{% extends "blog/index.html" %}
+
+{% block contenido %}
+
+<div class="card">
+    <h2>Pedidos Realizados</h2>
+
+    <ul>
+        {% for pedido in pedidos_list %}
+            <li>{{ pedido }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
